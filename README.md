@@ -61,6 +61,12 @@ php artisan migrate --seed
 ```
 
 All Set ! now serve laravel app on local and open app in browser.
+
+Login With Admin
+```bash
+Username - admin@admin.com
+Password - Admin@123#
+```
 ## Screenshots
 
 ![App Screenshot](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/53d53unbwjsvz2t0npan.png)

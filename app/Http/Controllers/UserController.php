@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Imports\UsersImport;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Models\Role;
-use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
@@ -36,7 +38,6 @@ class UserController extends Controller
     public function index()
     {
         $users = User::with('roles')->paginate(10);
-       
         return view('users.index', ['users' => $users]);
     }
     
@@ -224,6 +225,23 @@ class UserController extends Controller
             DB::rollBack();
             return redirect()->back()->with('error', $th->getMessage());
         }
+    }
+
+    /**
+     * Import Users 
+     * @param Null
+     * @return View File
+     */
+    public function importUsers()
+    {
+        return view('users.import');
+    }
+
+    public function uploadUsers(Request $request)
+    {
+        Excel::import(new UsersImport, $request->file);
+        
+        return redirect()->route('users.index')->with('success', 'User Imported Successfully');
     }
 
 }

@@ -8,9 +8,20 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Users</h1>
-            <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary">
-                <i class="fas fa-plus"></i> Add New
-            </a>
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary">
+                        <i class="fas fa-plus"></i> Add New
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="{{ route('users.export') }}" class="btn btn-sm btn-success">
+                        <i class="fas fa-check"></i> Export To Excel
+                    </a>
+                </div>
+                
+            </div>
+
         </div>
 
         {{-- Alert Messages --}}

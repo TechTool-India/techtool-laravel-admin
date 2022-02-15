@@ -51,5 +51,7 @@ Route::middleware('auth')->prefix('users')->name('users.')->group(function(){
     Route::get('/import-users', [UserController::class, 'importUsers'])->name('import');
     Route::post('/upload-users', [UserController::class, 'uploadUsers'])->name('upload');
 
+    Route::get('export/', [UserController::class, 'export'])->name('export');
+
 });
 

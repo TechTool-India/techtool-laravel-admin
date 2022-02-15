@@ -25,7 +25,10 @@
             @csrf
             <div class="card-body">
                 <div class="form-group row">
-
+                    
+                    <div class="col-md-12 mb-3 mt-3">
+                        <p>Please Upload CSV in Given Format <a href="{{ asset('files/sample-data-sheet.csv') }}" target="_blank">Sample CSV Format</a></p>
+                    </div>
                     {{-- File Input --}}
                     <div class="col-sm-12 mb-3 mt-3 mb-sm-0">
                         <span style="color:red;">*</span>File Input(Datasheet)</label>
